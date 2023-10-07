@@ -1,21 +1,43 @@
-//import logo from './logo.svg';
-import React from "react"
-import About from "./components/About";
-import Contact from "./components/Contact";
+import React from "react";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact";
+
+// You can import additional sections/components you may need.
 
 export default function App() {
   return (
-    <main className="text-gray-400 bg-gray-900 body-font">
+    <div>
+      {/* Navigation Bar */}
       <Navbar />
+
+      {/* Hero Section (Personal Introduction) */}
       <About />
+
+      {/* Projects Section */}
       <Projects />
+
+      {/* Skills Section */}
       <Skills />
+
+      {/* Testimonials Section */}
       <Testimonials />
+
+      {/* Contact Section */}
       <Contact />
-    </main>
+
+      {/* Additional Sections */}
+      {/* Add more sections here as needed, such as Blog, Awards, or Resume. */}
+
+      {/* Footer Section */}
+      <footer className="bg-gray-800 text-white py-6 text-center">
+        <div className="container mx-auto">
+          <p>&copy; {new Date().getFullYear()} Innocent Makusa. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   );
 }
