@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -20,18 +21,46 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // You can add your logic here to handle form submission, like sending an email or saving data.
-    // For now, let's display a success message.
+    // For now, let's display a success message with animations.
     setSubmissionMessage("Thanks for reaching out! We'll get back to you soon.");
+
+    // Clear the form after submission
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+    // Scroll to the success message
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <section id="contact" className="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white py-16">
+    <section
+      id="contact"
+      className="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 text-white py-16"
+    >
       <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold mb-8">Get in Touch</h1>
         <p className="text-lg max-w-prose mx-auto mb-8">
           Have a question or project in mind? Drop me a message, and I'll get back to you.
         </p>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-md mx-auto"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.5,
+              },
+            },
+            hidden: { opacity: 0, y: 50 },
+          }}
+        >
           <div className="mb-4">
             <input
               type="text"
@@ -72,9 +101,24 @@ export default function Contact() {
           </button>
         </form>
         {submissionMessage && (
-          <div className="mt-8 text-xl font-semibold text-green-400">
+          <motion.div
+            className="mt-8 text-xl font-semibold text-green-400"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: {
+                  delay: 0.3,
+                  duration: 0.5,
+                },
+              },
+              hidden: { opacity: 0, y: 50 },
+            }}
+          >
             {submissionMessage}
-          </div>
+          </motion.div>
         )}
       </div>
     </section>
