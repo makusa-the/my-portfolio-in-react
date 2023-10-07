@@ -1,35 +1,29 @@
-import { CheckBadgeIcon, CpuChipIcon} from "@heroicons/react/20/solid";
 import React from "react";
+import { CheckBadgeIcon, CpuChipIcon } from "@heroicons/react/20/solid";
 import { skills } from "../data";
 
 export default function Skills() {
-    return (
-        <section id="skills">
-      <div className="container px-5 py-10 mx-auto">
-        <div className="text-center mb-20">
-          <CpuChipIcon className="w-10 inline-block mb-4" />
-          <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-4">
-            Skills &amp; Technologies
-          </h1>
-          <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi sit
-            ipsa delectus eum quo voluptas aspernatur accusantium distinctio
-            possimus est.
-          </p>
-        </div>
-        <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+  return (
+    <section id="skills" className="bg-gradient-to-r from-blue-400 to-indigo-600 py-16 text-white">
+      <div className="container mx-auto text-center">
+        <CpuChipIcon className="w-12 h-12 mx-auto mb-6 text-green-400" />
+        <h1 className="text-4xl font-bold mb-6">My Skills & Technologies</h1>
+        <p className="text-lg mb-12">
+          Here are some of the skills and technologies I specialize in.
+        </p>
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
           {skills.map((skill) => (
-            <div key={skill} className="p-2 sm:w-1/2 w-full">
-              <div className="bg-gray-800 rounded flex p-4 h-full items-center">
-                <CheckBadgeIcon className="text-green-400 w-6 h-6 flex-shrink-0 mr-4" />
-                <span className="title-font font-medium text-white">
-                  {skill}
-                </span>
-              </div>
+            <div
+              key={skill}
+              className="bg-gray-800 rounded-lg p-4 text-center hover:bg-gray-700 transition duration-300"
+            >
+              <CheckBadgeIcon className="w-8 h-8 mx-auto mb-4 text-green-400" />
+              <h3 className="text-lg font-semibold mb-2">{skill}</h3>
+              <p className="text-gray-400">Expertise Level</p>
             </div>
           ))}
         </div>
       </div>
     </section>
-    );
+  );
 }

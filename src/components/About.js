@@ -1,38 +1,46 @@
+import React from "react";
+
 export default function About() {
-    return (
-        <section id="about">
-            <div className="container mx-auto flex px-10 py-20 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-            Hello, I'm Innocent.
-            <br className="hidden lg:inline-block" />I upgrading my WebDev Skills
-          </h1>
-          <p className="mb-8 leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui
-            laborum quasi, incidunt dolore iste nostrum cupiditate voluptas?
-            Laborum, voluptas natus?
-          </p>
-          <div className="flex justify-center">
-            <a
-              href="#contact"
-              className="inline-flex text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded text-lg">
-              Work With Me
-            </a>
-            <a
-              href="#projects"
-              className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
-              See My Past Work
-            </a>
+  return (
+    <section id="about" className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16">
+      <div className="container mx-auto flex flex-col items-center">
+        <img
+          src="./profile-pic.png"
+          alt="Innocent Makusa"
+          className="rounded-full w-32 h-32 mb-4 border-4 border-white"
+        />
+        <h1 className="text-4xl font-bold mb-4">Hi, I'm Innocent Makusa</h1>
+        <p className="text-lg text-center max-w-prose mb-8">
+          A<span className="text-pink-500"> passionate</span> web developer{" "}
+          <span className="text-yellow-500">crafting</span> delightful{" "}
+          <span className="text-green-500">online experiences</span>. I thrive on{" "}
+          <span className="text-blue-400">creative challenges</span> and enjoy{" "}
+          <span className="text-purple-500">solving complex problems</span> with{" "}
+          <span className="text-indigo-500">elegant solutions</span>.
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="p-6 rounded-lg shadow-md bg-white text-gray-900 text-center">
+            <h2 className="text-xl font-semibold mb-2">My Mission</h2>
+            <p>
+              To <span className="text-pink-500">inspire</span> and{" "}
+              <span className="text-blue-400">empower</span> others by{" "}
+              <span className="text-yellow-500">sharing knowledge</span> and{" "}
+              <span className="text-green-500">creating exceptional</span>{" "}
+              <span className="text-purple-500">web solutions</span>.
+            </p>
           </div>
-        </div>
-        <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-          <img
-            className="object-cover object-center rounded"
-            alt="hero"
-            src="./coding.svg"
-          />
+          <div className="p-6 rounded-lg shadow-md bg-white text-gray-900 text-center">
+            <h2 className="text-xl font-semibold mb-2">My Hobbies</h2>
+            <p>
+              When I'm not coding, you can find me <span className="text-blue-400">exploring</span> the outdoors,{" "}
+              <span className="text-green-500">reading sci-fi novels</span>,{" "}
+              <span className="text-pink-500">strumming my guitar</span>, or{" "}
+              <span className="text-yellow-500">baking</span> delicious{" "}
+              <span className="text-indigo-500">desserts</span>.
+            </p>
+          </div>
         </div>
       </div>
     </section>
-    );
+  );
 }

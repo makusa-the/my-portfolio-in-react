@@ -1,48 +1,46 @@
-import { CodeBracketIcon } from "@heroicons/react/20/solid";
 import React from "react";
+import { CodeBracketIcon } from "@heroicons/react/20/solid";
 import { projects } from "../data";
 
 export default function Projects() {
-    return (
-        <section id="projects" className="text-gray-400 bg-gray-900 body-font">
-      <div className="container px-5 py-10 mx-auto text-center lg:px-40">
-        <div className="flex flex-col w-full mb-20">
-          <CodeBracketIcon className="mx-auto inline-block w-10 mb-4" />
-          <h1 className="sm:text-4xl text-3xl font-medium title-font mb-4 text-white">
-            Apps I've Built
-          </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo
-            facilis repellat ab cupiditate alias vero aliquid obcaecati quisquam
-            fuga dolore.
-          </p>
-        </div>
-        <div className="flex flex-wrap -m-4">
+  return (
+    <section id="projects" className="bg-gray-900 text-white py-16">
+      <div className="container mx-auto text-center">
+        <CodeBracketIcon className="w-12 h-12 mx-auto mb-6 text-green-400" />
+        <h1 className="text-4xl font-bold mb-6">Projects Showcase</h1>
+        <p className="text-lg mb-12">
+          Check out some of the exciting projects I've worked on.
+        </p>
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <a
-              href={project.link}
-              key={project.image}
-              className="sm:w-1/2 w-100 p-4">
-              <div className="flex relative">
-                <img
-                  alt="gallery"
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  src={project.image}
-                />
-                <div className="px-8 py-10 relative z-10 w-full border-4 border-gray-800 bg-gray-900 opacity-0 hover:opacity-100">
-                  <h2 className="tracking-widest text-sm title-font font-medium text-green-400 mb-1">
-                    {project.subtitle}
-                  </h2>
-                  <h1 className="title-font text-lg font-medium text-white mb-3">
-                    {project.title}
-                  </h1>
-                  <p className="leading-relaxed">{project.description}</p>
+            <div
+              key={project.title}
+              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-56 object-cover object-center"
+              />
+              <div className="p-6">
+                <h2 className="text-xl font-semibold mb-2">
+                  {project.title}
+                </h2>
+                <p className="text-gray-400 mb-4">{project.subtitle}</p>
+                <p className="text-gray-500">{project.description}</p>
+                <div className="mt-4">
+                  <a
+                    href={project.link}
+                    className="text-green-400 hover:text-green-500 transition duration-300"
+                  >
+                    Learn More
+                  </a>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
     </section>
-    );
+  );
 }

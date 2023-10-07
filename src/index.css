@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Define global styles */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Set your background color */
+    color: #333; /* Set your text color */
+  }
+  
+  /* Define styles for the root element */
+  #root {
+    /* Add styles for your root element here */
+  }
+  
+  /* Navigation bar styles */
+  /* Customize your navbar styles */
+  .navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  /* Add styles for other sections, components, and elements */
+ 
+     .hero {
+       background-image: url('your-hero-image.jpg');
+       background-size: cover;
+       color: #fff;
+       text-align: center;
+       padding: 4rem;
+     }
+  
+     .project-card {
+       /* Add styles for project cards here */
+     }
+  
+     .footer {
+       /* Add styles for the footer here */
+     }
+  
+  /* Add your custom CSS styles below */
+  /* Example: */
+  /*
+  .custom-class {
+    /* Your custom styles here */
+  /*}*/
+  
