@@ -1,16 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
-
-// You can import additional sections/components you may need.
+import DarkModeToggle from './components/DarkModeToggle';
 
 export default function App() {
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem('darkMode') === 'true'
+  );
+
+  // Toggle dark mode and update the class on the body element
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', newDarkMode);
+    document.body.classList.toggle('dark-mode');
+  };
   return (
-    <div>
+    <div className={`App ${darkMode ? 'dark-mode' : ''}`}>
+    <header>
+        <DarkModeToggle toggleDarkMode={toggleDarkMode} />
+      </header>
+
       {/* Navigation Bar */}
       <Navbar />
 

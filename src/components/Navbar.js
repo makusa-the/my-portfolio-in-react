@@ -85,10 +85,10 @@ export default function Navbar() {
           </a>
         </div>
         <a
-          href="#contact"
+          href="https://1drv.ms/w/s!Au_wnQIyOF5zgVM1FSUl4REIru5s?e=HUwhca"
           className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"
         >
-          Hire Me
+          My Resume
           <ArrowRightIcon className="w-4 h-4 ml-1" />
         </a>
       </div>

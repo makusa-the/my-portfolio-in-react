@@ -5,7 +5,7 @@ export default function About() {
     <section id="about" className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16">
       <div className="container mx-auto flex flex-col items-center">
         <img
-          src="./profile-pic.png"
+          src="../profile-pic.jpg"
           alt="Innocent Makusa"
           className="rounded-full w-32 h-32 mb-4 border-4 border-white"
         />
