@@ -32,7 +32,7 @@
   /* Add styles for other sections, components, and elements */
  
      .hero {
-       background-image: url('your-hero-image.jpg');
+       background-image: url('./logo192.png');
        background-size: cover;
        color: #fff;
        text-align: center;
@@ -47,10 +47,4 @@
        /* Add styles for the footer here */
      }
   
-  /* Add your custom CSS styles below */
-  /* Example: */
-  /*
-  .custom-class {
-    /* Your custom styles here */
-  /*}*/
   
