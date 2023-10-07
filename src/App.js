@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Projects from "./components/Projects";
@@ -45,7 +45,7 @@ export default function App() {
         <Route
           render={({ location }) => (
             <AnimatePresence exitBeforeEnter>
-              <Switch location={location} key={location.pathname}>
+              <Routes location={location} key={location.pathname}>
                 {/* Home Page (Personal Introduction) */}
                 <Route
                   path="/"
@@ -126,7 +126,7 @@ export default function App() {
                     </motion.div>
                   )}
                 />
-              </Switch>
+              </Routes>
             </AnimatePresence>
           )}
         />
