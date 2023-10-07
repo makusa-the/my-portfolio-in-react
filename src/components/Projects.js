@@ -1,21 +1,64 @@
-import React from "react";
-import { CodeBracketIcon } from "@heroicons/react/20/solid";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 import { projects } from "../data";
+import DarkModeToggle from "./DarkModeToggle";
+import { useDarkMode } from "tailwindcss-dark-mode";
 
 export default function Projects() {
+  const [darkMode, setDarkMode] = useDarkMode();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Add scroll event listener to trigger animations
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <section id="projects" className="bg-gray-900 text-white py-16">
+    <section
+      id="projects"
+      className={`bg-gray-900 text-white py-16 ${
+        darkMode ? "dark-mode" : ""
+      }`}
+    >
       <div className="container mx-auto text-center">
-        <CodeBracketIcon className="w-12 h-12 mx-auto mb-6 text-green-400" />
-        <h1 className="text-4xl font-bold mb-6">Projects Showcase</h1>
-        <p className="text-lg mb-12">
+        <motion.h1
+          className="text-4xl font-bold mb-6"
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+          variants={variants}
+        >
+          Projects Showcase
+        </motion.h1>
+        <motion.p
+          className="text-lg mb-12"
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+          variants={variants}
+        >
           Check out some of the exciting projects I've worked on.
-        </p>
+        </motion.p>
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
-            <div
+            <motion.div
               key={project.title}
               className="bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+              whileHover={{ scale: 1.05 }}
             >
               <img
                 src={project.image}
@@ -37,9 +80,20 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
+        <div className="mt-8">
+          <Link
+            to="contact"
+            smooth={true}
+            duration={500}
+            className="text-blue-400 hover:text-blue-500 cursor-pointer"
+          >
+            Contact Me
+          </Link>
+        </div>
+        <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
       </div>
     </section>
   );
